@@ -153,3 +153,40 @@ footer{
     text-decoration: none;
 }
 
+
+@media screen and (min-width: 480px) {
+
+ 
+    #wrap>nav {
+        justify-content: space-around;
+    }
+
+    #wrap>nav a {
+        flex-direction: row;
+    }
+
+    #wrap>nav a:first-child {
+        margin-right: 0;
+    }
+
+    #wrap>nav a i {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+        margin-right: 0.6rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+ 
+        flex-direction: row;
+    }
+
+    #wrap>main>aside {
+        margin-top: 0;
+        border: 1px dotted;
+        margin-left: 0.5rem;
+        min-width: 220px;
+        max-width: 220px;
+    }
+
