@@ -92,22 +92,41 @@ nav a:hover{
     flex-grow: 1;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.685);
+    border-radius: 2rem;
 }
 
-#wrap > main > article{
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: .4rem;
-    border: 1px dotted;
+#fetchHaunterBtn{
+    font-family: Pokemon Solid;
+    color: #ffcb05;
+    -webkit-text-stroke: 1px #2a75bb;
+    font-size: 64px;
+    letter-spacing: 0.5rem;
+    border-radius: 2rem;
     flex-grow: 1;
-    padding: 0 .4rem;
-    
+    width: 100%;
 }
-#wrap > main > aside{
-    background-color: rgba(255, 241, 203, 0.7);
-    margin-top: .2rem;
-    border-radius: .4rem;
-    border: 1px dotted;
-    padding: 0 .4rem;
+#haunterName{
+    color: #7C6EBB;
+    -webkit-text-stroke: 1px #000;
+}
+#fetchHaunterBtn:hover{
+    cursor: pointer;
+    background-color: grey;
+    transition: 0.2s;
+}
+
+#pokemonData {
+    font-family: Pokemon Solid;
+    color: #ffcb05;
+    -webkit-text-stroke: 1px #2a75bb;
+    font-size: 32px;
+    letter-spacing: 0.3rem;
+    margin-left: 2rem;
+}
+
+#pokemonData h2{
+    font-size: 64px;
+   margin-bottom: 7rem;
 }
 
 footer{
@@ -175,11 +194,10 @@ footer{
         margin-right: 0.6rem;
     }
 }
-
 @media screen and (min-width: 768px) {
 
- 
-        flex-direction: row;
+    #wrap>main{
+        flex-direction: row
     }
 
     #wrap>main>aside {
@@ -190,3 +208,4 @@ footer{
         max-width: 220px;
     }
 
+}

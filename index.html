@@ -47,7 +47,9 @@
         </nav>
 
         <!-- Conteúdo Principal -->
-        <main>
+        <main id="main">
+            <button id="fetchHaunterBtn">Exibir dados do <span id="haunterName">Haunter</span></button>
+            <div id="pokemonData"></div>
         </main>
 
         <!-- Rodapé-->
@@ -126,11 +128,35 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script defer src="fb.js"></script>
-    <script defer src="index.js"></script>
 
+    <script>
+        document.getElementById('fetchHaunterBtn').addEventListener('click', function() {
+  fetch('https://pokeapi.co/api/v2/pokemon/haunter')
+    .then(response => response.json())
+    .then(data => {
+      // Manipule os dados para exibi-los na página
+      const fetchHaunterBtn = document.getElementById('fetchHaunterBtn');
+      const pokemonDataElement = document.getElementById('pokemonData');
+      
+      fetchHaunterBtn.style.display = 'none';
+      pokemonDataElement.style.display = 'block';
+      
+      pokemonDataElement.innerHTML = `
+        <h2>${data.name}</h2>
+        <img src="/assets/pokemon-haunter.gif" alt="${data.name}">
+        <p>Altura: ${data.height}</p>
+        <p>Peso: ${data.weight}</p>
+        <p>Tipo(s): ${data.types.map(type => type.type.name).join(', ')}</p>
+      `;
+    })
+    .catch(error => {
+      console.error('Ocorreu um erro:', error);
+    });
+});
+    </script>
 
 
 </body>
 
 </html>
+
