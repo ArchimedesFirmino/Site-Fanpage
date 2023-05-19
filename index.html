@@ -130,33 +130,37 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script>
-        document.getElementById('fetchHaunterBtn').addEventListener('click', function() {
-  fetch('https://pokeapi.co/api/v2/pokemon/haunter')
-    .then(response => response.json())
-    .then(data => {
-      // Manipule os dados para exibi-los na página
-      const fetchHaunterBtn = document.getElementById('fetchHaunterBtn');
-      const pokemonDataElement = document.getElementById('pokemonData');
-      
-      fetchHaunterBtn.style.display = 'none';
-      pokemonDataElement.style.display = 'block';
-      
-      pokemonDataElement.innerHTML = `
+        document.getElementById('fetchHaunterBtn').addEventListener('click', function () {
+            fetch('https://pokeapi.co/api/v2/pokemon/haunter')
+                .then(response => response.json())
+                .then(data => {
+                    // Manipule os dados para exibi-los na página
+                    const fetchHaunterBtn = document.getElementById('fetchHaunterBtn');
+                    const pokemonDataElement = document.getElementById('pokemonData');
+                    console.log(data)
+
+                    fetchHaunterBtn.style.display = 'none';
+                    pokemonDataElement.style.display = 'relative';
+
+                    pokemonDataElement.innerHTML = `
         <h2>${data.name}</h2>
         <img src="/assets/pokemon-haunter.gif" alt="${data.name}">
+        <p>Nº Pokedex: ${data.id}</p>
         <p>Altura: ${data.height}</p>
         <p>Peso: ${data.weight}</p>
         <p>Tipo(s): ${data.types.map(type => type.type.name).join(', ')}</p>
-      `;
-    })
-    .catch(error => {
-      console.error('Ocorreu um erro:', error);
-    });
-});
+        <p>HP Base: ${data.stats[0].base_stat}</p>
+        <p>ATK Base: ${data.stats[1].base_stat}</p>
+        <p>DEF Base: ${data.stats[2].base_stat}</p>
+        <p>SP ATK Base: ${data.stats[3].base_stat}</p>
+        <p>SP DEF Base: ${data.stats[4].base_stat}</p>
+        <p>SPD Base: ${data.stats[5].base_stat}</p>
+        `;
+                })
+            })
     </script>
 
 
 </body>
 
 </html>
-
